@@ -16,11 +16,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AlertDialog;
@@ -65,6 +67,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 @SuppressWarnings("SameReturnValue")
 public class MainActivity extends AppCompatActivity implements LocationListener {
@@ -213,10 +216,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
         String lastToday = sp.getString("lastToday", "");
+        assert lastToday != null;
         if (!lastToday.isEmpty()) {
             new TodayWeatherTask(this,this,progressDialog).execute("cachedResponse", lastToday);
         }
         String lastLongterm = sp.getString("lastLongterm", "");
+        assert lastLongterm != null;
         if (!lastLongterm.isEmpty()) {
             new LongTermWeatherTask(this,this,progressDialog).execute("cachedResponse", lastLongterm);
         }
@@ -330,6 +335,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 case 5:
                     icon = this.getString(R.string.weather_rainy);
                     break;
+                    default:
             }
         }
         return icon;
@@ -412,6 +418,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         return ParseResult.OK;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @SuppressLint("SetTextI18n")
     private void updateTodayWeatherUI() {
         String city = todayWeather.getCity();
@@ -423,11 +430,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
         float temperature = Float.parseFloat(todayWeather.getTemperature());
-        if (sp.getString("unit", "C").equals("C")) {
+        if (Objects.equals(sp.getString("unit", "C"), "C")) {
             temperature = temperature - 273.15f;
         }
 
-        if (sp.getString("unit", "C").equals("F")) {
+        if (Objects.equals(sp.getString("unit", "C"), "F")) {
             temperature = (((9 * (temperature - 273.15f)) / 5) + 32);
         }
 
@@ -435,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         String rainString = "";
         if(rain > 0)
         {
-            if (sp.getString("lengthUnit", "mm").equals("mm")) {
+            if (Objects.equals(sp.getString("lengthUnit", "mm"), "mm")) {
                 if(rain < 0.1) {
                     rainString = " (<0.1 mm)";
                 }
@@ -456,19 +463,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
         double wind = Double.parseDouble(todayWeather.getWind());
-        if (sp.getString("speedUnit", "m/s").equals("kph")) {
+        if (Objects.equals(sp.getString("speedUnit", "m/s"), "kph")) {
             wind = wind * 3.59999999712;
         }
 
-        if (sp.getString("speedUnit", "m/s").equals("mph")) {
+        if (Objects.equals(sp.getString("speedUnit", "m/s"), "mph")) {
             wind = wind * 2.23693629205;
         }
 
         double pressure = Double.parseDouble(todayWeather.getPressure());
-        if (sp.getString("pressureUnit", "hPa").equals("kPa")) {
+        if (Objects.equals(sp.getString("pressureUnit", "hPa"), "kPa")) {
             pressure = pressure / 10;
         }
-        if (sp.getString("pressureUnit", "hPa").equals("mm Hg")) {
+        if (Objects.equals(sp.getString("pressureUnit", "hPa"), "mm Hg")) {
             pressure = pressure * 0.750061561303;
         }
 
@@ -798,6 +805,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             return "weather";
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         protected void updateMainUI() {
             updateTodayWeatherUI();
