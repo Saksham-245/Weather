@@ -26,6 +26,7 @@
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
 	-webkit-user-select: none;
+	-ms-user-select:none;
 	   -moz-user-select: none;
 	        user-select: none;
 	-webkit-user-drag: none;
@@ -40,7 +41,7 @@
 	}
 /* stupid Android 2 doesn't understand "max-width: none" properly */
 .leaflet-container img.leaflet-image-layer {
-	max-width: 15000px !important;
+	max-width: 15000px important;
 	}
 .leaflet-tile {
 	filter: inherit;
@@ -56,6 +57,8 @@
 /* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
 .leaflet-overlay-pane svg {
 	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
 	}
 
 .leaflet-tile-pane    { z-index: 2; }
