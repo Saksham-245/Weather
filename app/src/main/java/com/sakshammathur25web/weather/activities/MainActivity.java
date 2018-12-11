@@ -425,7 +425,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         String country = todayWeather.getCountry();
         DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
         //noinspection ConstantConditions
-        getSupportActionBar().setTitle(city + (country.isEmpty() ? "" : ", " + country));
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 

@@ -168,9 +168,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             return null;
         }
 
-        protected void onPostExecute(Void v) {
-
-        }
+        //protected void onPostExecute(Void v) { }
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -252,16 +250,14 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
 
             @Override
-            public void onProviderEnabled(String provider) {
-
-            }
+            public void onProviderEnabled(String provider) {}
 
             @Override
             public void onProviderDisabled(String provider) {
 
             }
 
-            Location getLocation(){
+            private Location getLocation(){
                 return location;
             }
         }
