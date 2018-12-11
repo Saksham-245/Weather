@@ -80,7 +80,7 @@ public abstract class AbstractWidgetProvider extends AppWidgetProvider {
         return icon;
     }
 
-    private Weather parseWidgetJson(String result, Context context) {
+    public Weather parseWidgetJson(String result, Context context) {
         try {
             MainActivity.initMappings();
 
