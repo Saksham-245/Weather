@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBackground">@android:color/transparent</color>
+    <color name="colorTintedBackground">@color/colorPrimary</color>
+
+    <color name="darkTheme_colorPrimary">#37474f</color>
+    <color name="darkTheme_colorPrimaryDark">#263238</color>
+    <color name="darkTheme_colorAccent">#90a4ae</color>
+    <color name="darkTheme_colorBackground">#303030</color>
+    <color name="darkTheme_colorTintedBackground">#263238</color>
+
+    <color name="classic_colorPrimary" tools:keep="@color/classic_colorPrimary">#029fea</color>
+    <color name="classic_colorPrimaryDark" tools:keep="@color/classic_colorPrimaryDark">#027cb6</color>
+    <color name="classic_colorAccent" tools:keep="@color/classic_colorAccent">#025881</color>
+    <color name="classic_colorBackground" tools:keep="@color/classic_colorBackground">@android:color/transparent</color>
+    <color name="classic_colorTintedBackground" tools:keep="@color/classic_colorTintedBackground">#cdcdcd</color>
+
+    <color name="classic_darkTheme_colorPrimary" tools:keep="@color/classic_darkTheme_colorPrimary">#011a6c</color>
+    <color name="classic_darkTheme_colorPrimaryDark" tools:keep="@color/classic_darkTheme_colorPrimaryDark">#011454</color>
+    <color name="classic_darkTheme_colorAccent" tools:keep="@color/classic_darkTheme_colorAccent">#0026a6</color>
+    <color name="classic_darkTheme_colorBackground" tools:keep="@color/classic_darkTheme_colorBackground">#303030</color>
+    <color name="classic_darkTheme_colorTintedBackground" tools:keep="@color/classic_darkTheme_colorTintedBackground">#263238</color>
+</resources>

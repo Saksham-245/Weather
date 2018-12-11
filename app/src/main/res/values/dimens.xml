@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="fab_margin" tools:keep="@dimen/fab_margin">16dp</dimen>
+    <dimen name="text_margin" tools:keep="@dimen/text_margin">16dp</dimen>
+    <dimen name="app_bar_height" tools:keep="@dimen/app_bar_height">240dp</dimen>
+    <dimen name="activity_horizontal_margin" tools:keep="@dimen/activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin" tools:keep="@dimen/activity_vertical_margin">16dp</dimen>
+</resources>

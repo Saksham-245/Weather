@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/widgetRoot"
+    android:background="@drawable/widget_card">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_margin="25dp"
+        android:orientation="vertical"
+        tools:ignore="RelativeOverlap">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widgetTemperature"
+                tools:text="0°C"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widgetButtonRefresh"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_action_refresh"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription,HardcodedText" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetDescription"
+            tools:text="No Data"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetCity"
+            android:layout_marginTop="8dp"
+            tools:text="City name,AB"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetWind"
+            android:layout_marginTop="8dp"
+            tools:text="Wind: 0m/s"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetPressure"
+            tools:text="Pressure:0 hpa"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetHumidity"
+            tools:text="Humidity: 0%"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetSunrise"
+            tools:text="Sunrise: 00:00"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetSunset"
+            tools:text="Sunset: 00:00"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/widgetLastUpdate"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/widgetIcon"
+        android:layout_marginRight="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription,HardcodedText,RtlHardcoded" />
+</RelativeLayout>
