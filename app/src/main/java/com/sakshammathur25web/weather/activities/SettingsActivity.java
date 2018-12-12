@@ -139,7 +139,7 @@ public class SettingsActivity extends PreferenceActivity
     }
 
     private void setListPreferenceSummary(String preferenceKey) {
-        ListPreference preference = (ListPreference) findPreference(preferenceKey);
+        ListPreference preference = (ListPreference) findPreference(preferenceKey);//unused
     }
 
     private void setCustomDateEnabled() {

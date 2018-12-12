@@ -30,7 +30,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.text.InputType;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,7 +64,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
     private ProgressDialog progressDialog;
-    private int loading = 0;
+    private int loading = 0;//unused
 
     private boolean darkTheme;
     private boolean destroyed = false;
@@ -119,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         } catch (IOException e) {
             Log.e("IOException Data", "Error occurred while closing stream");
         }
-    }
+    }//unused
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -421,8 +419,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @SuppressLint("SetTextI18n")
     private void updateTodayWeatherUI() {
-        String city = todayWeather.getCity();
-        String country = todayWeather.getCountry();
+        String city = todayWeather.getCity();//unused
+        String country = todayWeather.getCountry();//unused
         DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
         //noinspection ConstantConditions
 
@@ -437,7 +435,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             temperature = (((9 * (temperature - 273.15f)) / 5) + 32);
         }
 
-        double rain = Double.parseDouble(todayWeather.getRain());
+        double rain = Double.parseDouble(todayWeather.getRain());//unused
         String rainString = "";
 
         double wind = Double.parseDouble(todayWeather.getWind());
@@ -636,14 +634,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         return super.onOptionsItemSelected(item);
     }
 
-    private void restorePreviousCity() {
-        if (!TextUtils.isEmpty(recentCity)) {
-            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit();
-            editor.putString("city", recentCity);
-            editor.apply();
-            recentCity = "";
-        }
-    }
+    //private void restorePreviousCity() {
+        //if (!TextUtils.isEmpty(recentCity)) {
+            //SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit();
+            //editor.putString("city", recentCity);
+            //editor.apply();
+            //recentCity = "";
+        //}
+    //}
 
     public static void initMappings() {
         if (mappingsInitialised)
@@ -669,10 +667,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             if (speedUnits.containsKey(preferenceValue)) {
                 result = context.getString(speedUnits.get(preferenceValue));
             }
-        } else if ("pressureUnit".equals(preferenceKey)) {
-            if (pressUnits.containsKey(preferenceValue)) {
+        } else if ("pressureUnit".equals(preferenceKey)&& (pressUnits.containsKey(preferenceValue))) {
                 result = context.getString(pressUnits.get(preferenceValue));
-            }
         }
         return result;
     }
