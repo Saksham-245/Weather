@@ -107,6 +107,7 @@ public class SettingsActivity extends PreferenceActivity
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
                 break;
+                default:
         }
     }
 
